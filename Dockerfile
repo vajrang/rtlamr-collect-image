@@ -8,4 +8,4 @@ RUN cd /go \
 
 LABEL description="multi-arch golang image with rtlamr and rtlamr-collect included"
 
-CMD rtlamr -s=${RTLTCP_SERVER}:${RTLTCP_PORT} | rtlamr-collect
+CMD rtlamr -server=${RTLTCP_SERVER}:${RTLTCP_PORT} | rtlamr-collect

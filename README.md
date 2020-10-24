@@ -32,6 +32,4 @@ _influxdb settings:_
 
 ## Build process:
 
-buildx.sh uses docker buildx (experimental) to create a multi-arch docker image. build.sh uses manifests.\
-The former creates one single multi-arch image, while the latter creates one image per arch in addition to the single image.\
-Both are derived from instructions described [here](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/).
+buildx.sh uses docker buildx (experimental) to create a multi-arch docker image. From instructions described [here](https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/).
