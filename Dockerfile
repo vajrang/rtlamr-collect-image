@@ -11,6 +11,9 @@ RUN apt update \
     && apt install rtl-433 -y \
     && rm -rf ./src
 
+COPY ./start.sh /root/
+
 LABEL description="multi-arch golang image with rtlamr, rtlamr-collect, and rtl-433 included"
 
-CMD /root/go/bin/rtlamr -server=${RTLTCP_SERVER}:${RTLTCP_PORT} | /root/go/bin/rtlamr-collect
+#CMD /root/go/bin/rtlamr -server=${RTLTCP_SERVER}:${RTLTCP_PORT} | /root/go/bin/rtlamr-collect
+CMD /root/start.sh
