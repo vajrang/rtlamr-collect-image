@@ -1,6 +1,6 @@
 # rtlamr-collect-image
 
-Image for Docker based on golang:latest that includes [rtlamr](https://github.com/bemasher/rtlamr) and [rtlamr-collect](https://github.com/bemasher/rtlamr-collect)
+Image for Docker based on golang:latest that includes [rtlamr](https://github.com/bemasher/rtlamr) and [rtlamr-collect](https://github.com/bemasher/rtlamr-collect) and [rtl_433](https://github.com/merbanan/rtl_433)
 
 Supports multi-architecture (currently amd64, arm32, arm64). Build is available [here](hub.docker.com/vajrang/rtlamr-collect).
 
@@ -20,7 +20,8 @@ _rtlamr settings:_
 
 `RTLAMR_FORMAT=json` _# must be json_\
 `RTLAMR_MSGTYPE=scm,r900`\
-`RTLAMR_FILTERID=123456,234567`
+`RTLAMR_FILTERID=123456,234567`\
+`RTLAMR_DURATION=24h` _# optional_
 
 _influxdb settings:_
 
@@ -29,6 +30,13 @@ _influxdb settings:_
 `COLLECT_INFLUXDB_USER=dbuser`\
 `COLLECT_INFLUXDB_PASS=dbpassword`\
 `COLLECT_STRICTIDM=1`
+
+_rtl_433 settings:_
+
+`RTL433_DURATION=5m`\
+`RTL433_INFLUXDB=influx://influxdb:8086/`\
+`RTL433_INFLUXDB_DATABASE=rtl433`\
+`RTL433_DEVICE_PROTOCOLS="-R 9"`
 
 ## Build process:
 
