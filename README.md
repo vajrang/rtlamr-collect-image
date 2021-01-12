@@ -9,27 +9,25 @@ Requires rtl_tcp to be running on a server:port accessible to this container. Te
 > `docker run -p 1234:1234 -v /dev/bus/usb legacycode/rtlsdr rtl_tcp -a 0.0.0.0 -p 1234`
 
 ## Environment variables:
-(See [this](https://github.com/bemasher/rtlamr-collect/blob/master/README.md) for more details)
-
 _rtl_tcp location:_
 
-`RTLTCP_SERVER=192.168.0.7`\
+`RTLTCP_SERVER=192.168.0.7` \
 `RTLTCP_PORT=1234`
 
-_rtlamr settings:_
+_[rtlamr](https://github.com/bemasher/rtlamr/wiki/Configuration) settings:_
 
-`RTLAMR_FORMAT=json` _# must be json_\
-`RTLAMR_MSGTYPE=scm,r900`\
-`RTLAMR_FILTERID=123456,234567`\
+`RTLAMR_FORMAT=json` _# must be json_ \
+`RTLAMR_MSGTYPE=scm,r900` \
+`RTLAMR_FILTERID=123456,234567` \
 `RTLAMR_DURATION=24h` _# optional_
 
-_influxdb settings:_
+_[influxdb](https://github.com/bemasher/rtlamr-collect/blob/master/README.md#usage) settings:_
 
-`COLLECT_INFLUXDB_HOSTNAME=http://influxdb:8086/`\
-`COLLECT_INFLUXDB_DATABASE=rtlamr`\
-`COLLECT_INFLUXDB_USER=dbuser`\
-`COLLECT_INFLUXDB_PASS=dbpassword`\
-`COLLECT_STRICTIDM=1`
+`COLLECT_INFLUXDB_HOSTNAME=http://influxdb:8086/` \
+`COLLECT_INFLUXDB_TOKEN=influxdbuser:influxdbpass` \
+`COLLECT_INFLUXDB_ORG=org` _# any value for influxdb version < 2.0_ \
+`COLLECT_INFLUXDB_BUCKET=database/retention_policy` _# e.g. rtlamr/autogen_ \
+`COLLECT_INFLUXDB_MEASUREMENT=rtlamr`
 
 _rtl_433 settings:_
 
